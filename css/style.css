@@ -7422,9 +7422,18 @@ li.L8 {
 body {
   background-color: #000000;
   color: #eeeeee;
-  padding: 10px 0 50px;
+  padding: 20px 30px 50px;
+  margin-left: 250px;
+  border-left: 20px solid #0099dd;
 }
-/* line 7, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
+/* line 9, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
+.sidebar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 200px;
+}
+/* line 16, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
 h1,
 h2,
 h3,
@@ -7432,7 +7441,7 @@ h4 {
   font-weight: normal;
   color: #0099dd;
 }
-/* line 12, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
+/* line 21, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
 code {
   background-color: transparent;
   color: #0099dd;
