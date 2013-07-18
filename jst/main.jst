@@ -1,10 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Document</title>
+  <title>GigaStorm Style Guide</title>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
-  <%=content%>
+  <div class="container">
+    <%=content%>
+  </div>
+</div>
+<script>
+  var underscored = function(str){
+    return str.replace(/([a-z\d])([A-Z]+)/g, '$1_$2').replace(/[-\s]+/g, '_').toLowerCase();
+  };
+  $('pre').addClass('prettyprint');
+  $('h1,h2,h3,h4,h5,h6').each(function() {
+    $(this).attr('id', underscored($(this).html().toLowerCase()));
+  });
+</script>
 </body>
 </html>

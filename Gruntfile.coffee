@@ -16,10 +16,13 @@ module.exports = (grunt) ->
         options:
           template: 'jst/main.jst'
           markdownOptions:
+            highlight: 'manual'
             gfm: true
         files: [
-          src: 'md/test.md'
-          dest: 'html/test.html'
+          expand: true
+          src: 'md/*.md'
+          dest: 'html/'
+          ext: '.html'
         ]
 
     watch:
@@ -27,7 +30,7 @@ module.exports = (grunt) ->
         files: ['less/*.less', 'less/bootstrap/*.less']
         tasks: ['less']
       markdown:
-        files: ['md/*.md']
+        files: ['md/*.md', 'jst/*.jst']
         tasks: ['markdown']
 
   grunt.loadNpmTasks 'grunt-contrib-less'
