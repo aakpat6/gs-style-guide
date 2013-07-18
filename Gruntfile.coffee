@@ -19,9 +19,10 @@ module.exports = (grunt) ->
             highlight: 'manual'
             gfm: true
         files: [
+          cwd: 'md'
           expand: true
-          src: 'md/*.md'
-          dest: 'html/'
+          src: '*.md'
+          dest: ''
           ext: '.html'
         ]
 
