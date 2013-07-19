@@ -9,11 +9,19 @@
 <body>
   <div class="sidebar">
     <img src="img/gs-logo.png" alt="GigaStorm">
+    <hr>
+    <h5>Style Guides</h5>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="python.html">Python</a></li>
+      <li><a href="javascript.html">Javascript</a></li>
+      <li><a href="java.html">Java</a></li>
+    </ul>
   </div>
   <!-- <div class="container"> -->
-    <h1>Python Guide</h1>
+    <h1>Python</h1>
+<hr>
 <h2>Language</h2>
-<h3>Imports</h3>
+<h4>Imports</h4>
 <p>Never use a wildcard import. Using a wildcard import could easily result in namespace collisions.
 Only import modules or packages.</p>
 <pre><code class="lang-python"><span class="keyword">import</span> module <span class="comment"># GOOD</span>
@@ -21,65 +29,122 @@ Only import modules or packages.</p>
 <span class="keyword">from</span> OpenGL <span class="keyword">import</span> OpenGL <span class="comment"># GOOD</span></code></pre>
 <p>If a name is unwieldy or annoying to use, you may alias the import. You should also alias the import if you are importing two modules with the same name.</p>
 <pre><code class="lang-python"><span class="keyword">import</span> really_annoying_and_long_module_name <span class="keyword">as</span> module <span class="comment"># GOOD</span></code></pre>
-<h3>Exceptions</h3>
+<h4>Exceptions</h4>
 <p>Use exceptions if you need to signal something bad has happened. Always raise an exception with <code>raise MyException</code> or <code>raise MyException(&#39;message&#39;)</code>, never in any other way.</p>
 <p>Always catch specific exceptions; never use <code>except:</code> or <code>except Exception</code>. If you would like to capture the exception, you should use <code>except MyException as e</code>, not <code>except MyException, e</code>.</p>
 <p>Make sure to put as little code in your <code>try</code> block as possible. You don&#39;t want exceptions to be caught silently unless you know exactly what you&#39;re handling them with.</p>
-<h3>Globals</h3>
+<h4>Globals</h4>
 <p>Try not to use global variables (those that are declared at the top level of a module). There are some exceptions:</p>
 <ul>
 <li>Constants: <code>REFRESH_RATE = 3.2</code></li>
 <li>Caching values from multiple function calls.</li>
 <li>Default options, if writing a script.</li>
 </ul>
-<h3>Functions</h3>
+<h4>Functions</h4>
 <p>Try to minimize the scope of functions if possible. Thus, nested or local functions are perfectly fine, as shown below.</p>
 <pre><code class="lang-python"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(L)</span>:</span>
   <span class="function"><span class="keyword">def</span> <span class="title">g</span><span class="params">(n)</span>:</span>
     <span class="comment"># Do very complicated math</span>
     <span class="keyword">return</span> result
   <span class="keyword">return</span> [g(x) <span class="keyword">for</span> x <span class="keyword">in</span> L]</code></pre>
-<h3>List and Dictionary Comprehensions</h3>
+<h4>List and Dictionary Comprehensions</h4>
 <p>You should use list and dictionary comprehensions, <em>except</em> in the cases that using a comprehension lowers the readability of the code instead of improving it. A good rule of thumb is that a comprehension should fit easily in one line. If the comprehension gets too complicated to read easily, simply use <code>for</code> loops and construct the data structure yourself.</p>
 <p>Comprehensions are greatly preferred to using functional programming tools such as <code>map</code> and <code>filter</code>.</p>
-<h3>Iteration and Membership</h3>
+<h4>Iteration and Membership</h4>
 <p>When iterating or checking membership, you should use the keywords <code>in</code> and <code>not in</code>, as opposed to using the less well known and harder to read alternatives, such as iterating through <code>dictionary.keys()</code> or checking <code>dictionary.has_key()</code>.</p>
-<h3>Anonymous Functions</h3>
+<h4>Anonymous Functions</h4>
 <p>Using <code>lambda</code> functions can very much simplify code writing, especially when dealing with data structures. However, make sure the anonymous functions are still easily readable.</p>
-<h3>Ternary Operator</h3>
+<h4>Ternary Operator</h4>
 <p>The ternary operator exists in Python:</p>
 <pre><code class="lang-python">x = <span class="number">10</span> <span class="keyword">if</span> y &gt; <span class="number">2</span> <span class="keyword">else</span> <span class="number">4</span></code></pre>
 <p>Use of the ternary operator cuts down on code length, so it is OK to use it. However, if the condition is long or it starts to impair readability, switch to a traditional <code>if...else</code> statement.</p>
-<h3>Default and Keyword Arguments</h3>
+<h4>Default and Keyword Arguments</h4>
 <p>In Python we can specify default arguments for functions. Doing this is fine, as long as the function calls refer to these arguments by name. Never use mutable objects as default arguments, as they are only loaded once.</p>
 <pre><code class="lang-python"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a, b=<span class="number">2</span>)</span>:</span> <span class="comment"># GOOD</span>
 f(<span class="number">1</span>, b=<span class="number">3</span>) <span class="comment"># GOOD</span>
 f(<span class="number">1</span>, <span class="number">4</span>) <span class="comment"># BAD</span>
 
 <span class="function"><span class="keyword">def</span> <span class="title">g</span><span class="params">(a, b=[])</span> # <span class="title">BAD</span></code></pre>
-<h3>True/False</h3>
+<h4>True/False</h4>
 <p>Whenever possible, you should use the implicit value of <code>False</code> that is assigned to the values <code>None</code>, <code>0</code>, <code>&quot;&quot;</code>, <code>[]</code>, and <code>{}</code>. This reduces the amount of code that you have to write in condition evaluations. So, <code>if not my_list:</code> is better than <code>if my_list != []</code>.</p>
 <p>In the case of integers, you may compare to <code>0</code> instead of simply checking for an implicit <code>False</code>.</p>
-<h3>None</h3>
+<h4>None</h4>
 <p>When checking for equality with <code>None</code>, you should use the <code>is</code> keyword.</p>
 <pre><code class="lang-python"><span class="keyword">if</span> a <span class="keyword">is</span> <span class="built_in">None</span>: <span class="comment"># GOOD</span>
 <span class="keyword">if</span> a == <span class="built_in">None</span>: <span class="comment"># BAD</span>
 <span class="keyword">if</span> <span class="keyword">not</span> a: <span class="comment"># GOOD, if you don't just want to catch None</span></code></pre>
+<h4>Files</h4>
+<p>When using a file, be sure to close the file afterwards.
+A good way to avoid having to do this:</p>
+<pre><code class="lang-python"><span class="keyword">with</span> open(<span class="string">'example.txt'</span>) <span class="keyword">as</span> f:
+  <span class="keyword">print</span> f.readlines()</code></pre>
+<p>After the <code>with</code> block is executed, <code>f</code> is automatically closed.</p>
+<h4>Strings</h4>
+<p>It is better to use the <code>%</code> operator to format strings, using a <code>printf</code> style of formatting.</p>
+<pre><code class="lang-python">s = <span class="string">'My name is %s'</span> % <span class="string">'Bob'</span>
+<span class="keyword">print</span> s <span class="comment"># Outputs 'My name is Bob'</span></code></pre>
+<p>Note that if you have a lot of data, you can do this with a <code>dict</code> also:</p>
+<pre><code class="lang-python">s = <span class="string">'My name is %(name)s and I am %(age)d years old.'</span> % {<span class="string">'name'</span>: <span class="string">'Bob'</span>, <span class="string">'age'</span>: <span class="number">27</span>}
+<span class="keyword">print</span> s <span class="comment"># Outputs 'My name is Bob and I am 27 years old'</span></code></pre>
+<hr>
 <h2>Style</h2>
-<h3>Indentation</h3>
+<h4>Naming</h4>
+<p>In Python, the naming scheme is as follows:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Package</td>
+<td align="left"><code>package_name</code></td>
+</tr>
+<tr>
+<td align="left">Module</td>
+<td align="left"><code>module_name</code></td>
+</tr>
+<tr>
+<td align="left">Class</td>
+<td align="left"><code>ClassName</code></td>
+</tr>
+<tr>
+<td align="left">Exception</td>
+<td align="left"><code>ExceptionName</code></td>
+</tr>
+<tr>
+<td align="left">Function</td>
+<td align="left"><code>function_name()</code></td>
+</tr>
+<tr>
+<td align="left">Constant</td>
+<td align="left"><code>CONSTANT_NAME</code></td>
+</tr>
+</tbody>
+</table>
+<p>Anything not listed in the table should follow the <code>lower_case_underscore</code> convention.</p>
+<p>We use a <code>_leading_underscore</code> to denote that a property, function, or class is meant to be used only internally. This is like a <code>protected</code> identifier in Java. Note that this does not actually prevent other modules from accessing the property, it simply serves as a signal to the developer.</p>
+<h4>Indentation</h4>
 <p>Use two spaces for indentation in all Python files. Never use tab characters, and never mix tabs and spaces.</p>
 <p>In case of hanging indents, align to the opening delimiter.</p>
 <pre><code class="lang-python"><span class="function"><span class="keyword">def</span> <span class="title">function_with_a_big_name</span><span class="params">(really_long_argument_name, another_long_argument_name_again,
                              a_third_argument_name, the_very_last_argument)</span>:</span></code></pre>
-<h3>Line Length</h3>
+<h4>Line Length</h4>
 <p>You should try to keep line length to less than 100 characters.</p>
-<h3>Parentheses</h3>
+<h4>Parentheses</h4>
 <p>Use parentheses only when you need to. A simple <code>if</code> statement does not need parentheses around the condition.</p>
 <p>You may use parentheses if you need to have a multiline command, in which case you should indent the following lines to the opening delimiter.</p>
-<h3>Spaces</h3>
+<h4>Spaces</h4>
 <p>Use spaces after commas, never before commas. Never use commas immediately before or after a delimiter such as <code>(</code>, <code>)</code>, <code>[</code>, <code>]</code>, etc.</p>
 <p>Binary operators should have spaces on either side, e.g. <code>x &gt; y</code>.</p>
 <p>Do not use spaces on either side of the <code>=</code> when referring to default or keyword arguments, e.g. <code>f(a, b=3)</code>.</p>
+<h4>Main</h4>
+<p>Every module should be able to be imported quickly. To this end, any main code that is executed in a script should be placed inside an
+<code>if __name__ == &#39;__main__&#39;:</code> block.</p>
+<h4>Imports</h4>
+<p>Imports should be placed into categories depending on where they came from.</p>
 
   <!-- </div> -->
 </div>
