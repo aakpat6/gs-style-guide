@@ -104,6 +104,15 @@ var arr = [
 ];
 ```
 
+#### Indentation
+We use two spaces for indentation of blocks. Never use tabs.
+
+In case of hanging indents, align to the opening delimiter.
+```javascript
+function function_with_a_big_name(really_long_argument_name, another_long_argument_name_again,
+                                  a_third_argument_name, the_very_last_argument) {
+```
+
 #### Parentheses and Quotes
 Use parentheses only when required. Never use parentheses next to a keyword such as `return` or `typeof`.
 

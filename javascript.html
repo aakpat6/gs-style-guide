@@ -10,15 +10,14 @@
   <div class="sidebar">
     <img src="img/gs-logo.png" alt="GigaStorm">
     <hr>
-    <h5>Style Guides</h5>
+    <h4>Style Guides</h4>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="python.html">Python</a></li>
       <li><a href="javascript.html">Javascript</a></li>
       <li><a href="java.html">Java</a></li>
     </ul>
   </div>
-  <!-- <div class="container"> -->
-    <h1>Javascript</h1>
+  <h1>Javascript</h1>
 <hr>
 <h2>Language</h2>
 <h4>Variables</h4>
@@ -112,6 +111,11 @@ Using a traditional <code>for</code> loop also eliminates problems when dealing 
   <span class="string">'one of the strings'</span>,
   <span class="string">'another string'</span>
 ];</code></pre>
+<h4>Indentation</h4>
+<p>We use two spaces for indentation of blocks. Never use tabs.</p>
+<p>In case of hanging indents, align to the opening delimiter.</p>
+<pre><code class="lang-javascript"><span class="function"><span class="keyword">function</span> <span class="title">function_with_a_big_name</span><span class="params">(really_long_argument_name, another_long_argument_name_again,
+                                  a_third_argument_name, the_very_last_argument)</span> {</span></code></pre>
 <h4>Parentheses and Quotes</h4>
 <p>Use parentheses only when required. Never use parentheses next to a keyword such as <code>return</code> or <code>typeof</code>.</p>
 <p>Prefer <code>&#39;</code> to <code>&quot;</code> simply because it improves consistency and makes it easier to write HTML in Javascript strings.</p>
@@ -149,7 +153,6 @@ Using a traditional <code>for</code> loop also eliminates problems when dealing 
 We can use this to our advantage to initialize variables that may be uninitialized, and create default values:</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> x = x || {}; <span class="comment">// Will set x to {} but only if x has not been initialized yet.</span></code></pre>
 
-  <!-- </div> -->
 </div>
 <script>
   var underscored = function(str){
