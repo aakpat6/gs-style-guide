@@ -51,6 +51,12 @@ Do not mix layout and functionality; i.e. do not put Javascript code directly in
 <p onclick="alert('hi');">Say hi.</p>
 ```
 
+Do not mix layout and presentation; i.e. do not put a `style` attribute directly on HTML tags.
+```html
+<!-- BAD -->
+<p style="background-color: #0099dd;">Hello.</p>
+```
+
 #### Types
 Do not specify `type` attributes on scripts and stylesheets. The correct way to include these is:
 ```html

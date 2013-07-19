@@ -50,6 +50,9 @@
 <p>Do not mix layout and functionality; i.e. do not put Javascript code directly inside tags.</p>
 <pre><code class="lang-html"><span class="comment">&lt;!-- BAD --&gt;</span>
 <span class="tag">&lt;<span class="title">p</span> <span class="attribute">onclick</span>=<span class="value">"alert('hi');"</span>&gt;</span>Say hi.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></pre>
+<p>Do not mix layout and presentation; i.e. do not put a <code>style</code> attribute directly on HTML tags.</p>
+<pre><code class="lang-html"><span class="comment">&lt;!-- BAD --&gt;</span>
+<span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">"background-color: #0099dd;"</span>&gt;</span>Hello.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></pre>
 <h4>Types</h4>
 <p>Do not specify <code>type</code> attributes on scripts and stylesheets. The correct way to include these is:</p>
 <pre><code class="lang-html"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"css/style.css"</span>&gt;</span>
