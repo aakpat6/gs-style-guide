@@ -34,7 +34,7 @@ Try not to use global variables (those that are declared at the top level of a m
 - Default options, if writing a script.
 
 #### Functions
-Try to minimize the scope of functions if possible. Thus, nested or local functions are perfectly fine, as shown below.
+Minimize the scope of functions. Thus, nested or local functions are perfectly fine, as shown below.
 ```python
 def f(L):
   def g(n):
@@ -44,7 +44,7 @@ def f(L):
 ```
 
 #### List and Dictionary Comprehensions
-You should use list and dictionary comprehensions, *except* in the cases that using a comprehension lowers the readability of the code instead of improving it. A good rule of thumb is that a comprehension should fit easily in one line. If the comprehension gets too complicated to read easily, simply use `for` loops and construct the data structure yourself.
+You should use list and dictionary comprehensions, *except* in the cases that using a comprehension lowers the readability of the code instead of improving it. A comprehension should fit easily in one line. If the comprehension gets too complicated to read easily, simply use `for` loops and construct the data structure yourself.
 
 Comprehensions are greatly preferred to using functional programming tools such as `map` and `filter`.
 
@@ -164,7 +164,7 @@ def mystery_redux(n):
 ```
 
 #### Line Length
-You should try to keep line length to less than 100 characters.
+Keep line length to less than 100 characters.
 
 #### Parentheses
 Use parentheses only when you need to. A simple `if` statement does not need parentheses around the condition.
@@ -175,8 +175,9 @@ You may use parentheses if you need to have a multiline command, in which case y
 Use spaces after commas, never before commas. Never use commas immediately before or after a delimiter such as `(`, `)`, `[`, `]`, etc.
 
 Binary operators should have spaces on either side, e.g. `x > y`.
-
 Do not use spaces on either side of the `=` when referring to default or keyword arguments, e.g. `f(a, b=3)`.
+
+Remove all trailing whitespace at the end of lines.
 
 #### Main
 Every module should be able to be imported quickly. To this end, any main code that is executed in a script should be placed inside an

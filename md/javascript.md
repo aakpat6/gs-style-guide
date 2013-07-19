@@ -70,6 +70,7 @@ var x = obj.a; // Preferred
 var y = obj['b'] // Less preferred
 var key = 'a'
 var z = obj[key] // Necessary
+```
 
 ------------------------
 
@@ -108,7 +109,7 @@ Multiline objects and arrays are formatted in the same way as other blocks. Neve
 ```javascript
 var obj = {
   a: 4,
-  other_key: 'other_value'
+  otherKey: 'otherValue'
 };
 var arr = [
   'one of the strings',
@@ -129,6 +130,9 @@ function functionWithABigName(reallyLongArgumentName, anotherLongArgumentNameAga
 Use parentheses only when required. Never use parentheses next to a keyword such as `return` or `typeof`.
 
 Prefer `'` to `"` simply because it improves consistency and makes it easier to write HTML in Javascript strings.
+
+#### Line Length
+Keep line length to 100 characters or less.
 
 #### Comments
 You should write comments.
@@ -156,13 +160,14 @@ However, beware that these are the *only* falsey things.
 ##### Ternary Operator
 Use of the ternary operator is encouraged if it doesn't impair readability. The following two snippets are equivalent:
 ```javascript
+// Method 1.
 if (condition) {
   x = 2;
 } else {
   x = 3;
 }
-```
-```javascript
+
+// Method 2.
 x = condition ? 2 : 3;
 ```
 The second is clearly more succint and easier to read; thus, it is preferred.
@@ -171,6 +176,6 @@ The second is clearly more succint and easier to read; thus, it is preferred.
 The operators `&&` and `||` short circuit, and evaluate to the last evaluated value.
 We can use this to our advantage to initialize variables that may be uninitialized, and create default values:
 ```javascript
-var x = x || {}; // Will set x to {} but only if x has not been initialized yet.
+var x = x || {}; // Sets x to {} but only if x has not been initialized yet.
 ```
 

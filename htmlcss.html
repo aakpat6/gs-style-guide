@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <title>GigaStorm Style Guide</title>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <img src="img/gs-logo.png" alt="GigaStorm">
+    <hr>
+    <h4>Style Guides</h4>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="python.html">Python</a></li>
+      <li><a href="java.html">Java</a></li>
+      <li><a href="javascript.html">Javascript</a></li>
+      <li><a href="htmlcss.html">HTML/CSS</a></li>
+    </ul>
+  </div>
+  <h1>HTML/CSS</h1>
+<hr>
+<h2>HTML</h2>
+<h4>Protocols</h4>
+<p>Never specify a protocol when using resources. This enables compatibility with both <code>http:</code> and <code>https:</code>, as well as prevents small bugs and offers small performance increases.</p>
+<pre><code class="lang-html"><span class="comment">&lt;!-- GOOD --&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="comment">&lt;!-- BAD --&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+<h4>Indentation</h4>
+<p>Use two spaces to indent. Always indent inner blocks of code, and indent everything inside an element. Do not use tabs.</p>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span>1<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span>2<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span>3<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span></code></pre>
+<h4>Capitalization</h4>
+<p>Only use lowercase. This improves readability across the code base.</p>
+<pre><code class="lang-html"><span class="comment">&lt;!-- GOOD --&gt;</span>
+<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">""</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="comment">&lt;!-- BAD --&gt;</span>
+<span class="tag">&lt;<span class="title">A</span> <span class="attribute">HREF</span>=<span class="value">""</span>&gt;</span><span class="tag">&lt;/<span class="title">A</span>&gt;</span></code></pre>
+<h4>Doctype</h4>
+<p>Always use the HTML5 doctype:</p>
+<pre><code class="lang-html"><span class="doctype">&lt;!doctype html&gt;</span></code></pre>
+<h4>Semantics</h4>
+<p>Use the elements for the purpose they were intended for. If you want to make a paragraph, use the <code>p</code> element.</p>
+<p>Do not mix layout and functionality; i.e. do not put Javascript code directly inside tags.</p>
+<pre><code class="lang-html"><span class="comment">&lt;!-- BAD --&gt;</span>
+<span class="tag">&lt;<span class="title">p</span> <span class="attribute">onclick</span>=<span class="value">"alert('hi');"</span>&gt;</span>Say hi.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></pre>
+<h4>Types</h4>
+<p>Do not specify <code>type</code> attributes on scripts and stylesheets. The correct way to include these is:</p>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"css/style.css"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/main.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+<h4>Quotations</h4>
+<p>Use double quotes (<code>&quot;</code>) when specifying values for attributes in tags, instead of single quotes (<code>&#39;</code>).</p>
+<h2>CSS</h2>
+<h4>Semicolons</h4>
+<p>Use semicolons after every style declaration.</p>
+<h4>Whitespace</h4>
+<p>Place an extra blank line between rules. Each selector for a rule should be on a new line. Each style declaration should itself be on a new line.</p>
+<p>Use a space after the colon, but not before the colon, for every declaration.</p>
+<h4>Indentation</h4>
+<p>Use two spaces to indent inside each block.</p>
+<h4>Colors</h4>
+<p>Prefer to use the shortest string possible when using colors; so, <code>#ff0</code> is preferred to <code>#ffff00</code>. Use lowercase when using hex color selectors.</p>
+<p>If using a precompiler such as LESS, use a variable for each color in use, instead of hardcoding colors into the LESS declarations.</p>
+<h4>Shorthand</h4>
+<p>Prefer shorthand properties to multiple properties. They increase readability of the styles.
+More documentation about shorthand properties can be found at the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">Mozilla Developer Network</a>.</p>
+<h4>Quotations</h4>
+<p>Use single quotes for CSS when specifying property values.</p>
+<h4>Example</h4>
+<pre><code class="lang-`html"><span class="tag">body</span> <span class="rules">{
+  <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#fff</span>;</span></span>
+<span class="rule">}</span></span>
+
+<span class="tag">h1</span>,
+<span class="tag">h2</span> <span class="rules">{
+  <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#a45eb3</span>;</span></span>
+  <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#f00</span>;</span></span>
+<span class="rule">}</span></span></code></pre>
+
+</div>
+<script>
+  var underscored = function(str){
+    return str.replace(/([a-z\d])([A-Z]+)/g, '$1_$2').replace(/[-\s]+/g, '_').toLowerCase();
+  };
+  $('pre').addClass('prettyprint');
+  $('h1,h2,h3,h4,h5,h6').each(function() {
+    $(this).attr('id', underscored($(this).html().toLowerCase()));
+  });
+</script>
+</body>
+</html>

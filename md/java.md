@@ -1,9 +1,9 @@
 Java
 ==========
 
-We follow standard Java coding conventions. You can download an Eclipse autoformatter [here](assets/android-formatting.xml).
+Follow standard Java coding conventions. Download the Eclipse autoformatter [here](assets/android-formatting.xml).
 
-Always make sure that your code has been autoformatted before pushing it upstream.
+Always make sure that code has been autoformatted before pushing it upstream.
 
 ------------------------
 
@@ -48,6 +48,9 @@ Never use `do..while` loops. They are confusing, and the logic is at the end, ma
 
 Avoid using `break` and `continue` in loops, as they decrease readability.
 
+#### Logging
+You should log, especially when things break. However, log sparingly so as not to cause too much unnecessary clutter.
+
 ------------------------
 
 Style
@@ -70,7 +73,7 @@ Use 4 spaces to indent blocks.
 Use 8 spaces for hanging indents.
 
 #### TODO
-Use `TODO:` comments for temporary code, or code that is a hacked solution. Clearly write what to fix, and how important it is to fix it.
+Use `TODO:` comments for temporary code, or code that is a hacked solution. Clearly write what to fix, and when it needs to be fixed.
 
 #### Comments
 Use standard Javadoc comments to document functions and methods. Use end of line comments for statements. Comments should start with a capital letter and end with a period.

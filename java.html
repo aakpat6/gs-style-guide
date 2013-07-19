@@ -13,13 +13,14 @@
     <h4>Style Guides</h4>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="python.html">Python</a></li>
-      <li><a href="javascript.html">Javascript</a></li>
       <li><a href="java.html">Java</a></li>
+      <li><a href="javascript.html">Javascript</a></li>
+      <li><a href="htmlcss.html">HTML/CSS</a></li>
     </ul>
   </div>
   <h1>Java</h1>
-<p>We follow standard Java coding conventions. You can download an Eclipse autoformatter <a href="assets/android-formatting.xml">here</a>.</p>
-<p>Always make sure that your code has been autoformatted before pushing it upstream.</p>
+<p>Follow standard Java coding conventions. Download the Eclipse autoformatter <a href="assets/android-formatting.xml">here</a>.</p>
+<p>Always make sure that code has been autoformatted before pushing it upstream.</p>
 <hr>
 <h2>Language</h2>
 <h4>Exceptions</h4>
@@ -47,6 +48,8 @@
 <h4>Loops</h4>
 <p>Never use <code>do..while</code> loops. They are confusing, and the logic is at the end, making them less readable.</p>
 <p>Avoid using <code>break</code> and <code>continue</code> in loops, as they decrease readability.</p>
+<h4>Logging</h4>
+<p>You should log, especially when things break. However, log sparingly so as not to cause too much unnecessary clutter.</p>
 <hr>
 <h2>Style</h2>
 <h4>Naming</h4>
@@ -78,7 +81,7 @@
 <p>Use 4 spaces to indent blocks.</p>
 <p>Use 8 spaces for hanging indents.</p>
 <h4>TODO</h4>
-<p>Use <code>TODO:</code> comments for temporary code, or code that is a hacked solution. Clearly write what to fix, and how important it is to fix it.</p>
+<p>Use <code>TODO:</code> comments for temporary code, or code that is a hacked solution. Clearly write what to fix, and when it needs to be fixed.</p>
 <h4>Comments</h4>
 <p>Use standard Javadoc comments to document functions and methods. Use end of line comments for statements. Comments should start with a capital letter and end with a period.</p>
 <p>If your class has more than 2 functions, you should put a multiline comment at the top explaining the purpose of the class.</p>

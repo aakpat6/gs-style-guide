@@ -7451,17 +7451,27 @@ h6 {
   font-weight: normal;
   color: #0099dd;
 }
-/* line 32, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
+/* line 37, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
+a {
+  color: #0099dd;
+  text-decoration: none;
+}
+/* line 40, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
+a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+/* line 46, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
 code {
   background-color: transparent;
   color: #0099dd;
   border: none;
 }
-/* line 38, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
+/* line 52, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
 hr {
   border: 1px solid #0099dd;
 }
-/* line 42, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
+/* line 56, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
 table {
   border: 1px solid #999999;
   -webkit-border-radius: 2px;
@@ -7470,17 +7480,17 @@ table {
   min-width: 300px;
   margin: 10px 0;
 }
-/* line 47, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
+/* line 61, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
 table * {
   padding: 5px;
 }
-/* line 51, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
+/* line 65, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
 table tr td,
 table tr th {
   border: 1px solid #999999;
   padding: 2px 5px;
 }
-/* line 54, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
+/* line 68, /Users/avp/Dropbox/programming/gs-style-guide/less/main.less */
 table tr td code,
 table tr th code {
   padding: 0;
