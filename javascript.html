@@ -57,46 +57,42 @@ Using a traditional <code>for</code> loop also eliminates problems when dealing 
 <p>When constructing arrays and objects, use literals, not constructors.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> obj = {a: <span class="number">5</span>, b: <span class="number">6</span>}
 <span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>];</code></pre>
-<hr>
-<h2>Style</h2>
-<h4>Naming</h4>
-<p>In Javascript, the naming scheme is as follows:</p>
-<table>
-<thead>
-<tr>
-<th align="left">Type</th>
-<th align="left">Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">File</td>
-<td align="left"><code>filename.js</code></td>
-</tr>
-<tr>
-<td align="left">Namespace</td>
-<td align="left"><code>NamespaceName</code></td>
-</tr>
-<tr>
-<td align="left">Constant</td>
-<td align="left"><code>CONSTANT_NAME</code></td>
-</tr>
-<tr>
-<td align="left">Function</td>
-<td align="left"><code>functionName</code></td>
-</tr>
-<tr>
-<td align="left">Variable</td>
-<td align="left"><code>variableName</code></td>
-</tr>
-</tbody>
-</table>
-<p>We use a <code>trailingUnderscore_</code> to distinguish those functions and properties that should be private.</p>
-<p>Optional function arguments should be prefixed with <code>opt_</code> so as to let the caller know that the argument is optional. If a function has a variable number of arguments, the last argument should be <code>var_args</code>.</p>
-<p>Filenames should always be only lowercase. You may include either <code>_</code> or <code>-</code> in the filenames if you so choose.</p>
-<h4>Formatting</h4>
-<p>We use standard C and C++ style formatting as shown below. We use two spaces for indentation, never use tabs.</p>
-<pre><code class="lang-javascript"><span class="keyword">if</span> (condition) {
+<p>In object literals, only use strings as keys if necessary.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> obj = {a: <span class="number">5</span>, b: <span class="number">6</span>}; <span class="comment">// GOOD</span>
+<span class="keyword">var</span> obj = {<span class="string">'a'</span>: <span class="number">5</span>, <span class="string">'b'</span>: <span class="number">6</span>}; <span class="comment">// BAD</span></code></pre>
+<p>When accessing properties in objects, use dot notation whenever possible. Note that dot notation is not possible to use when trying to access a key that is only known by reference to a variable, as shown below.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> obj = {a: <span class="number">5</span>, b: <span class="number">6</span>};
+<span class="keyword">var</span> x = obj.a; <span class="comment">// Preferred</span>
+<span class="keyword">var</span> y = obj[<span class="string">'b'</span>] <span class="comment">// Less preferred</span>
+<span class="keyword">var</span> key = <span class="string">'a'</span>
+<span class="keyword">var</span> z = obj[key] <span class="comment">// Necessary</span>
+
+------------------------
+
+Style
+------
+
+#### Naming
+In Javascript, the naming scheme is as follows:
+
+Type | Name
+:----- | :-----
+File | `filename.js`
+Namespace | `NamespaceName`
+Constant | `CONSTANT_NAME`
+Function | `functionName`
+Variable | `variableName`
+
+We use a `trailingUnderscore_` to distinguish those functions and properties that should be private.
+
+Optional <span class="function"><span class="keyword">function</span> <span class="title">arguments</span> <span class="title">should</span> <span class="title">be</span> <span class="title">prefixed</span> <span class="title">with</span> `<span class="title">opt_</span>` <span class="title">so</span> <span class="title">as</span> <span class="title">to</span> <span class="title">let</span> <span class="title">the</span> <span class="title">caller</span> <span class="title">know</span> <span class="title">that</span> <span class="title">the</span> <span class="title">argument</span> <span class="title">is</span> <span class="title">optional</span>. <span class="title">If</span> <span class="title">a</span> <span class="title">function</span> <span class="title">has</span> <span class="title">a</span> <span class="title">variable</span> <span class="title">number</span> <span class="title">of</span> <span class="title">arguments</span>, <span class="title">the</span> <span class="title">last</span> <span class="title">argument</span> <span class="title">should</span> <span class="title">be</span> `<span class="title">var_args</span>`.
+
+<span class="title">Filenames</span> <span class="title">should</span> <span class="title">always</span> <span class="title">be</span> <span class="title">only</span> <span class="title">lowercase</span>. <span class="title">You</span> <span class="title">may</span> <span class="title">include</span> <span class="title">either</span> `<span class="title">_</span>` <span class="title">or</span> `-` <span class="title">in</span> <span class="title">the</span> <span class="title">filenames</span> <span class="title">if</span> <span class="title">you</span> <span class="title">so</span> <span class="title">choose</span>.
+
+#### <span class="title">Formatting</span>
+<span class="title">We</span> <span class="title">use</span> <span class="title">standard</span> <span class="title">C</span> <span class="title">and</span> <span class="title">C</span>++ <span class="title">style</span> <span class="title">formatting</span> <span class="title">as</span> <span class="title">shown</span> <span class="title">below</span>. <span class="title">We</span> <span class="title">use</span> <span class="title">two</span> <span class="title">spaces</span> <span class="title">for</span> <span class="title">indentation</span>, <span class="title">never</span> <span class="title">use</span> <span class="title">tabs</span>.
+```<span class="title">javascript</span>
+<span class="title">if</span> <span class="params">(condition)</span> {</span>
   <span class="comment">// Do something</span>
 } <span class="keyword">else</span> {
   <span class="comment">// Do something else</span>
@@ -104,7 +100,7 @@ Using a traditional <code>for</code> loop also eliminates problems when dealing 
 <p>Always start a <code>{</code> on the same line as the thing that it links to.</p>
 <p>Multiline objects and arrays are formatted in the same way as other blocks. Never align the values in an object.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> obj = {
-  a: <span class="number">4</span>
+  a: <span class="number">4</span>,
   other_key: <span class="string">'other_value'</span>
 };
 <span class="keyword">var</span> arr = [

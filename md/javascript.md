@@ -58,6 +58,18 @@ When constructing arrays and objects, use literals, not constructors.
 var obj = {a: 5, b: 6}
 var arr = [1, 1, 2, 3, 5, 8];
 ```
+In object literals, only use strings as keys if necessary.
+```javascript
+var obj = {a: 5, b: 6}; // GOOD
+var obj = {'a': 5, 'b': 6}; // BAD
+```
+When accessing properties in objects, use dot notation whenever possible. Note that dot notation is not possible to use when trying to access a key that is only known by reference to a variable, as shown below.
+```javascript
+var obj = {a: 5, b: 6};
+var x = obj.a; // Preferred
+var y = obj['b'] // Less preferred
+var key = 'a'
+var z = obj[key] // Necessary
 
 ------------------------
 
@@ -95,7 +107,7 @@ Always start a `{` on the same line as the thing that it links to.
 Multiline objects and arrays are formatted in the same way as other blocks. Never align the values in an object.
 ```javascript
 var obj = {
-  a: 4
+  a: 4,
   other_key: 'other_value'
 };
 var arr = [
