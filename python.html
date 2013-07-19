@@ -53,10 +53,6 @@ Only import modules or packages.</p>
 <p>When iterating or checking membership, you should use the keywords <code>in</code> and <code>not in</code>, as opposed to using the less well known and harder to read alternatives, such as iterating through <code>dictionary.keys()</code> or checking <code>dictionary.has_key()</code>.</p>
 <h4>Anonymous Functions</h4>
 <p>Using <code>lambda</code> functions can very much simplify code writing, especially when dealing with data structures. However, make sure the anonymous functions are still easily readable.</p>
-<h4>Ternary Operator</h4>
-<p>The ternary operator exists in Python:</p>
-<pre><code class="lang-python">x = <span class="number">10</span> <span class="keyword">if</span> y &gt; <span class="number">2</span> <span class="keyword">else</span> <span class="number">4</span></code></pre>
-<p>Use of the ternary operator cuts down on code length, so it is OK to use it. However, if the condition is long or it starts to impair readability, switch to a traditional <code>if...else</code> statement.</p>
 <h4>Default and Keyword Arguments</h4>
 <p>In Python we can specify default arguments for functions. Doing this is fine, as long as the function calls refer to these arguments by name. Never use mutable objects as default arguments, as they are only loaded once.</p>
 <pre><code class="lang-python"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a, b=<span class="number">2</span>)</span>:</span> <span class="comment"># GOOD</span>
@@ -85,6 +81,23 @@ A good way to avoid having to remember to close is to do this:</p>
 <p>Note that if you have a lot of data, you can do this with a <code>dict</code> also:</p>
 <pre><code class="lang-python">s = <span class="string">'My name is %(name)s and I am %(age)d years old.'</span> % {<span class="string">'name'</span>: <span class="string">'Bob'</span>, <span class="string">'age'</span>: <span class="number">27</span>}
 <span class="keyword">print</span> s <span class="comment"># Outputs 'My name is Bob and I am 27 years old'</span></code></pre>
+<p>When performing string concatenations, especially repeatedly, it is preferred to use the <code>string.join</code> function over manual concatenation with the <code>+</code> operator, as it is significantly faster. Below are increasingly faster and cleaner ways to create a string of the first 1000 natural numbers. Strings are immutable, and lists are mutable. So, if you&#39;re changing the value of something, you should change the value of the mutable.</p>
+<pre><code class="lang-python"><span class="string">""" Method 1 (bad) """</span>
+s = <span class="string">''</span>
+<span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">1000</span>):
+  s += str(i)
+
+<span class="string">""" Method 2 (good) """</span>
+a = []
+<span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">1000</span>):
+  a.append(str(i))
+s = <span class="string">''</span>.join(a)
+
+<span class="string">""" Method 3 (best) """</span>
+s = <span class="string">''</span>.join([str(i) <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">1000</span>)])</code></pre>
+<h4>Ranges</h4>
+<p>Prefer <code>xrange</code> over <code>range</code> when iterating. This is quicker, because the whole list doesn&#39;t have to be generated befor eiteration can begin.
+Only use <code>range</code> if you actually want to use the list for some reason.</p>
 <hr>
 <h2>Style</h2>
 <h4>Naming</h4>
@@ -151,6 +164,10 @@ When writing a docstring for a function, or a multiline comment, you should use 
 <h4>Main</h4>
 <p>Every module should be able to be imported quickly. To this end, any main code that is executed in a script should be placed inside an
 <code>if __name__ == &#39;__main__&#39;:</code> block.</p>
+<h4>Ternary Operator</h4>
+<p>The ternary operator exists in Python:</p>
+<pre><code class="lang-python">x = <span class="number">10</span> <span class="keyword">if</span> y &gt; <span class="number">2</span> <span class="keyword">else</span> <span class="number">4</span></code></pre>
+<p>Use of the ternary operator cuts down on code length, so it is OK to use it. However, if the condition is long or it starts to impair readability, switch to a traditional <code>if...else</code> statement.</p>
 <h4>Imports</h4>
 <p>Imports should be placed into categories depending on where they came from.</p>
 

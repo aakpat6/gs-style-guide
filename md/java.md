@@ -3,6 +3,8 @@ Java
 
 We follow standard Java coding conventions. You can download an Eclipse autoformatter [here](assets/android-formatting.xml).
 
+Always make sure that your code has been autoformatted before pushing it upstream.
+
 ------------------------
 
 Language
@@ -72,6 +74,8 @@ Use `TODO:` comments for temporary code, or code that is a hacked solution. Clea
 
 #### Comments
 Use standard Javadoc comments to document functions and methods. Use end of line comments for statements. Comments should start with a capital letter and end with a period.
+
+If your class has more than 2 functions, you should put a multiline comment at the top explaining the purpose of the class.
 
 ```java
 /**

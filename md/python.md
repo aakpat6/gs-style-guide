@@ -54,13 +54,6 @@ When iterating or checking membership, you should use the keywords `in` and `not
 #### Anonymous Functions
 Using `lambda` functions can very much simplify code writing, especially when dealing with data structures. However, make sure the anonymous functions are still easily readable.
 
-#### Ternary Operator
-The ternary operator exists in Python:
-```python
-x = 10 if y > 2 else 4
-```
-Use of the ternary operator cuts down on code length, so it is OK to use it. However, if the condition is long or it starts to impair readability, switch to a traditional `if...else` statement.
-
 #### Default and Keyword Arguments
 In Python we can specify default arguments for functions. Doing this is fine, as long as the function calls refer to these arguments by name. Never use mutable objects as default arguments, as they are only loaded once.
 ```python
@@ -104,6 +97,27 @@ Note that if you have a lot of data, you can do this with a `dict` also:
 s = 'My name is %(name)s and I am %(age)d years old.' % {'name': 'Bob', 'age': 27}
 print s # Outputs 'My name is Bob and I am 27 years old'
 ```
+
+When performing string concatenations, especially repeatedly, it is preferred to use the `string.join` function over manual concatenation with the `+` operator, as it is significantly faster. Below are increasingly faster and cleaner ways to create a string of the first 1000 natural numbers. Strings are immutable, and lists are mutable. So, if you're changing the value of something, you should change the value of the mutable.
+```python
+""" Method 1 (bad) """
+s = ''
+for i in xrange(1000):
+  s += str(i)
+
+""" Method 2 (good) """
+a = []
+for i in xrange(1000):
+  a.append(str(i))
+s = ''.join(a)
+
+""" Method 3 (best) """
+s = ''.join([str(i) for i in xrange(1000)])
+```
+
+#### Ranges
+Prefer `xrange` over `range` when iterating. This is quicker, because the whole list doesn't have to be generated befor eiteration can begin.
+Only use `range` if you actually want to use the list for some reason.
 
 ----------------------------------------------------------
 
@@ -167,6 +181,13 @@ Do not use spaces on either side of the `=` when referring to default or keyword
 #### Main
 Every module should be able to be imported quickly. To this end, any main code that is executed in a script should be placed inside an
 `if __name__ == '__main__':` block.
+
+#### Ternary Operator
+The ternary operator exists in Python:
+```python
+x = 10 if y > 2 else 4
+```
+Use of the ternary operator cuts down on code length, so it is OK to use it. However, if the condition is long or it starts to impair readability, switch to a traditional `if...else` statement.
 
 #### Imports
 Imports should be placed into categories depending on where they came from.

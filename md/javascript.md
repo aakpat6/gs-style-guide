@@ -121,8 +121,8 @@ We use two spaces for indentation of blocks. Never use tabs.
 
 In case of hanging indents, align to the opening delimiter.
 ```javascript
-function function_with_a_big_name(really_long_argument_name, another_long_argument_name_again,
-                                  a_third_argument_name, the_very_last_argument) {
+function functionWithABigName(reallyLongArgumentName, anotherLongArgumentNameAgain,
+                              aThirdArgumentName, theVeryLastArgument) {
 ```
 
 #### Parentheses and Quotes
