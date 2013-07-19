@@ -86,7 +86,7 @@ if not a: # GOOD, if you don't just want to catch None
 
 #### Files
 When using a file, be sure to close the file afterwards.
-A good way to avoid having to do this:
+A good way to avoid having to remember to close is to do this:
 ```python
 with open('example.txt') as f:
   print f.readlines()
@@ -133,6 +133,20 @@ In case of hanging indents, align to the opening delimiter.
 ```python
 def function_with_a_big_name(really_long_argument_name, another_long_argument_name_again,
                              a_third_argument_name, the_very_last_argument):
+```
+
+#### Comments
+You should comment your code if it's nonobvious what it does at first sight.
+When writing a docstring for a function, or a multiline comment, you should use the `"""` syntax for the start and end of the comment. Docstrings should contain a description of what the function does, as well as any necessary types that could help a user run the function.
+```python
+def mystery(x, n):
+   """ Returns a list of length n with each entry as x """
+   return [x for i in xrange(n)]
+```
+End of line comments or comments regarding a statement should use the `#` syntax.
+```python
+def mystery_redux(n):
+  return [x ** 2 for x in xrange(n)] # Creates a list of squares of length n
 ```
 
 #### Line Length

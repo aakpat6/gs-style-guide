@@ -74,7 +74,7 @@ f(<span class="number">1</span>, <span class="number">4</span>) <span class="com
 <span class="keyword">if</span> <span class="keyword">not</span> a: <span class="comment"># GOOD, if you don't just want to catch None</span></code></pre>
 <h4>Files</h4>
 <p>When using a file, be sure to close the file afterwards.
-A good way to avoid having to do this:</p>
+A good way to avoid having to remember to close is to do this:</p>
 <pre><code class="lang-python"><span class="keyword">with</span> open(<span class="string">'example.txt'</span>) <span class="keyword">as</span> f:
   <span class="keyword">print</span> f.readlines()</code></pre>
 <p>After the <code>with</code> block is executed, <code>f</code> is automatically closed.</p>
@@ -130,6 +130,15 @@ A good way to avoid having to do this:</p>
 <p>In case of hanging indents, align to the opening delimiter.</p>
 <pre><code class="lang-python"><span class="function"><span class="keyword">def</span> <span class="title">function_with_a_big_name</span><span class="params">(really_long_argument_name, another_long_argument_name_again,
                              a_third_argument_name, the_very_last_argument)</span>:</span></code></pre>
+<h4>Comments</h4>
+<p>You should comment your code if it&#39;s nonobvious what it does at first sight.
+When writing a docstring for a function, or a multiline comment, you should use the <code>&quot;&quot;&quot;</code> syntax for the start and end of the comment. Docstrings should contain a description of what the function does, as well as any necessary types that could help a user run the function.</p>
+<pre><code class="lang-python"><span class="function"><span class="keyword">def</span> <span class="title">mystery</span><span class="params">(x, n)</span>:</span>
+   <span class="string">""" Returns a list of length n with each entry as x """</span>
+   <span class="keyword">return</span> [x <span class="keyword">for</span> i <span class="keyword">in</span> xrange(n)]</code></pre>
+<p>End of line comments or comments regarding a statement should use the <code>#</code> syntax.</p>
+<pre><code class="lang-python"><span class="function"><span class="keyword">def</span> <span class="title">mystery_redux</span><span class="params">(n)</span>:</span>
+  <span class="keyword">return</span> [x ** <span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> xrange(n)] <span class="comment"># Creates a list of squares of length n</span></code></pre>
 <h4>Line Length</h4>
 <p>You should try to keep line length to less than 100 characters.</p>
 <h4>Parentheses</h4>
