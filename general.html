@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <title>GigaStorm Style Guide</title>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <img src="img/gs-logo.png" alt="GigaStorm">
+    <hr>
+    <h4>Style Guides</h4>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="general.html">General</a></li>
+      <li><a href="python.html">Python</a></li>
+      <li><a href="java.html">Java</a></li>
+      <li><a href="javascript.html">Javascript</a></li>
+      <li><a href="htmlcss.html">HTML/CSS</a></li>
+    </ul>
+  </div>
+  <h1>General</h1>
+<hr>
+<h2>General Style</h2>
+<h4>Files</h4>
+<p>Filenames are lowercase, except in the case of Java.</p>
+<p>Files end in a newline - i.e. there is a blank line at the end of the file when viewed in a text editor.</p>
+<h4>Names</h4>
+<p>Be descriptive and <em>consistent</em> when naming variables and files, as this will greatly reduce the workload of the person reading your code. To that end, the text shown to the user should correlate to the internal variable names associated with that text, to allow for easier maintenance. For example, if you have a button that says &quot;Jump&quot;, then the associated function should be called <code>jump()</code> instead of <code>hop()</code> or something confusing like that.</p>
+<h4>Comments</h4>
+<p>Document any nontrivial function with a description of what it does. Guidelines for the comments themselves appear in each language&#39;s style guide.</p>
+<p>Document any nontrivial file (read: more than one function) with a description of what it does.</p>
+<p>Do not use <code>@author</code> annotations or write your name at the top of a file. Doing this can be confusing, because most files are modified by multiple people. Instead, consult a <code>git blame</code> if you want to know who wrote a specific piece of code.</p>
+<h2>Git</h2>
+<h4>Commits</h4>
+<p>Commit messages are in the imperative, so as to follow the guidelines set by the default <code>merge</code> and <code>rebase</code> commit messages, e.g. <code>Add functionality</code> instead of <code>Added functionality</code>.</p>
+<p>Commit messages describe a feature that was implemented in that commit first. This message must be short (less than 80 characters). If you wish to elaborate, place a blank line, and then elaborate afterwards.</p>
+<h4>Push and pull</h4>
+<p>Pull before beginning work. If Git auto-merges your code, then call <code>git rebase</code> in order to fast forward your commits before push. If you have to merge manually, create a new commit for it and do not <code>rebase</code>. Test your code after merging to make sure it still works.</p>
+<h4>Issues</h4>
+<p>We use Github issues to track things that need to be done. If you create a commit that either adds progress to, or completes an issue, reference that issue in your commit message.</p>
+<ul>
+<li>If you have made progress, then add <code>Ref #&lt;issue&gt;.</code> to your commit message, after your main message.</li>
+<li>If you have completed the task in the issue, then add <code>Close #&lt;issue&gt;.</code> or <code>Fix #&lt;issue&gt;.</code> depending on whether it was a feature addition or a bugfix.</li>
+</ul>
+<h4>Example</h4>
+<pre><code>Add ability <span class="keyword">to</span> view all users.
+
+Pressing <span class="function_start"><span class="keyword">on</span> <span class="title">the</span></span> big blue button lets <span class="keyword">the</span> admin see all <span class="keyword">the</span> users <span class="keyword">of</span> <span class="keyword">the</span> <span class="type">application</span>.
+Ref <span class="comment">#13.</span></code></pre>
+
+</div>
+<script>
+  var underscored = function(str){
+    return str.replace(/([a-z\d])([A-Z]+)/g, '$1_$2').replace(/[-\s]+/g, '_').toLowerCase();
+  };
+  $('pre').addClass('prettyprint');
+  $('h1,h2,h3,h4,h5,h6').each(function() {
+    $(this).attr('id', underscored($(this).html().toLowerCase()));
+  });
+</script>
+</body>
+</html>

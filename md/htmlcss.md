@@ -94,6 +94,9 @@ More documentation about shorthand properties can be found at the [Mozilla Devel
 #### Quotations
 Use single quotes for CSS when specifying property values.
 
+#### Naming
+Class and ID names should be lowercase and hyphenated. They should become more specific from left to right, e.g. `btn-user-edit`.
+
 #### Example
 ````html
 body {
