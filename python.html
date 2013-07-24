@@ -182,6 +182,10 @@ Do not use spaces on either side of the <code>=</code> when referring to default
   $('pre').addClass('prettyprint');
   $('h1,h2,h3,h4,h5,h6').each(function() {
     $(this).attr('id', underscored($(this).html().toLowerCase()));
+    $(this).css('cursor', 'pointer');
+    $(this).click(function() {
+      window.location.hash = '#' + $(this).attr('id');
+    });
   });
 </script>
 </body>

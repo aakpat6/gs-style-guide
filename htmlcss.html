@@ -97,6 +97,10 @@ More documentation about shorthand properties can be found at the <a href="https
   $('pre').addClass('prettyprint');
   $('h1,h2,h3,h4,h5,h6').each(function() {
     $(this).attr('id', underscored($(this).html().toLowerCase()));
+    $(this).css('cursor', 'pointer');
+    $(this).click(function() {
+      window.location.hash = '#' + $(this).attr('id');
+    });
   });
 </script>
 </body>
