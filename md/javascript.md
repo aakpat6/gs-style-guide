@@ -134,6 +134,9 @@ Prefer `'` to `"` simply because it improves consistency and makes it easier to 
 #### Line Length
 Keep line length to 100 characters or less.
 
+#### Numbers
+When writing numbers between -1 and 1, use a leading 0 for the integral part of the number, i.e. prefer `0.31415` to `.31415`. Doing so makes the `.` more visible and also disambiguates the fact that is a decimal point.
+
 #### Comments
 You should write comments.
 ```javascript
