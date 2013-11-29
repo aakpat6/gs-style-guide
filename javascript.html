@@ -19,12 +19,12 @@
       <li><a href="htmlcss.html">HTML/CSS</a></li>
     </ul>
   </div>
-  <h1>Javascript</h1>
+  <h1 id="javascript">Javascript</h1>
 <hr>
-<h2>Language</h2>
-<h4>Variables</h4>
+<h2 id="language">Language</h2>
+<h4 id="variables">Variables</h4>
 <p>Always declare variables with <code>var</code>. If a variable is declared without <code>var</code>, it gets placed in the global namespace, and this can lead to issues with collisions down the line.</p>
-<h4>Semicolons</h4>
+<h4 id="semicolons">Semicolons</h4>
 <p>Always use semicolons. This prevents Javascript from having to guess where the semicolons are supposed to go.
 Semicolons should be placed after every statement, but not after function declarations.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> x = <span class="number">4</span>; <span class="comment">// Semicolon here</span>
@@ -35,7 +35,7 @@ Semicolons should be placed after every statement, but not after function declar
 <span class="function"><span class="keyword">function</span> <span class="title">square</span><span class="params">(n)</span> {</span>
   <span class="keyword">return</span> n * n;
 } <span class="comment">// Not here</span></code></pre>
-<h4>Functions in Functions</h4>
+<h4 id="functions-in-functions">Functions in Functions</h4>
 <p>Feel free to write functions inside other functions. However, you should only use function <em>declarations</em> at top level.
 In blocks, use a <code>var</code> declaration assigned to a function value.</p>
 <pre><code class="lang-javascript"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">(x)</span> {</span>
@@ -43,19 +43,19 @@ In blocks, use a <code>var</code> declaration assigned to a function value.</p>
     <span class="keyword">return</span> <span class="number">3</span>;
   };
 }</code></pre>
-<h4>Wrappers for Primitives</h4>
+<h4 id="wrappers-for-primitives">Wrappers for Primitives</h4>
 <p>Don&#39;t use wrappers for primitive types. Typecasting is allowed, i.e. <code>var x = Boolean(0)</code>, but do not do <code>var x = Boolean(false)</code>.
 This can be nice for <code>number</code>, <code>string</code>, and <code>boolean</code>, which are the primitives of Javascript.</p>
-<h4>Delete</h4>
+<h4 id="delete">Delete</h4>
 <p>Avoid using the <code>delete</code> keyword in favor of <code>obj.prop = null</code>. It improves performance. The exception is obviously if you want to change the value of <code>key in obj</code>.</p>
-<h4>For Loops</h4>
+<h4 id="for-loops">For Loops</h4>
 <p>Always use a traditional <code>for</code> loop when iterating. It simplifies the code and makes bugs easier to see.
 Using a traditional <code>for</code> loop also eliminates problems when dealing with the prototype.</p>
-<h4>Long Strings</h4>
+<h4 id="long-strings">Long Strings</h4>
 <p>Do not use multiline string literals. Use concatenation to create large strings, if you must.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> s = <span class="string">'This is the first sentence of a really long string. '</span> +
         <span class="string">'This is the second sentence of the really long string.'</span>;</code></pre>
-<h4>Arrays and Objects</h4>
+<h4 id="arrays-and-objects">Arrays and Objects</h4>
 <p>When constructing arrays and objects, use literals, not constructors.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> obj = {a: <span class="number">5</span>, b: <span class="number">6</span>}
 <span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>];</code></pre>
@@ -68,45 +68,48 @@ Using a traditional <code>for</code> loop also eliminates problems when dealing 
 <span class="keyword">var</span> y = obj[<span class="string">'b'</span>] <span class="comment">// Less preferred</span>
 <span class="keyword">var</span> key = <span class="string">'a'</span>
 <span class="keyword">var</span> z = obj[key] <span class="comment">// Necessary</span></code></pre>
+<p>When copying an array, use <code>slice</code>:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> itemCopy = items.slice();</code></pre>
 <hr>
-<h2>Style</h2>
-<h4>Naming</h4>
+<h2 id="style">Style</h2>
+<h4 id="naming">Naming</h4>
 <p>In Javascript, the naming scheme is as follows:</p>
 <table>
 <thead>
 <tr>
-<th align="left">Type</th>
-<th align="left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Name</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">File</td>
-<td align="left"><code>filename.js</code></td>
+<td style="text-align:left">File</td>
+<td style="text-align:left"><code>filename.js</code></td>
 </tr>
 <tr>
-<td align="left">Namespace</td>
-<td align="left"><code>NamespaceName</code></td>
+<td style="text-align:left">Namespace</td>
+<td style="text-align:left"><code>NamespaceName</code></td>
 </tr>
 <tr>
-<td align="left">Constant</td>
-<td align="left"><code>CONSTANT_NAME</code></td>
+<td style="text-align:left">Constant</td>
+<td style="text-align:left"><code>CONSTANT_NAME</code></td>
 </tr>
 <tr>
-<td align="left">Function</td>
-<td align="left"><code>functionName</code></td>
+<td style="text-align:left">Function</td>
+<td style="text-align:left"><code>functionName</code></td>
 </tr>
 <tr>
-<td align="left">Variable</td>
-<td align="left"><code>variableName</code></td>
+<td style="text-align:left">Variable</td>
+<td style="text-align:left"><code>variableName</code></td>
 </tr>
 </tbody>
 </table>
 <p>We use a <code>trailingUnderscore_</code> to distinguish those functions and properties that should be private.</p>
 <p>Optional function arguments should be prefixed with <code>opt_</code> so as to let the caller know that the argument is optional. If a function has a variable number of arguments, the last argument should be <code>var_args</code>.</p>
 <p>Filenames should always be only lowercase. You may include either <code>_</code> or <code>-</code> in the filenames if you so choose.</p>
-<h4>Formatting</h4>
-<p>We use standard C and C++ style formatting as shown below. We use two spaces for indentation, never use tabs.</p>
+<h4 id="formatting">Formatting</h4>
+<p>We use standard C and C++ style formatting as shown below. We use two spaces for indentation, never use tabs.
+Always use braces with any multiline blocks. Place an empty newline at the end of every file.</p>
 <pre><code class="lang-javascript"><span class="keyword">if</span> (condition) {
   <span class="comment">// Do something</span>
 } <span class="keyword">else</span> {
@@ -122,19 +125,34 @@ Using a traditional <code>for</code> loop also eliminates problems when dealing 
   <span class="string">'one of the strings'</span>,
   <span class="string">'another string'</span>
 ];</code></pre>
-<h4>Indentation</h4>
+<h4 id="indentation">Indentation</h4>
 <p>We use two spaces for indentation of blocks. Never use tabs.</p>
 <p>In case of hanging indents, align to the opening delimiter.</p>
 <pre><code class="lang-javascript"><span class="function"><span class="keyword">function</span> <span class="title">functionWithABigName</span><span class="params">(reallyLongArgumentName, anotherLongArgumentNameAgain,
                               aThirdArgumentName, theVeryLastArgument)</span> {</span></code></pre>
-<h4>Parentheses and Quotes</h4>
+<h4 id="parentheses-and-quotes">Parentheses and Quotes</h4>
 <p>Use parentheses only when required. Never use parentheses next to a keyword such as <code>return</code> or <code>typeof</code>.</p>
 <p>Prefer <code>&#39;</code> to <code>&quot;</code> simply because it improves consistency and makes it easier to write HTML in Javascript strings.</p>
-<h4>Line Length</h4>
+<h4 id="line-length">Line Length</h4>
 <p>Keep line length to 100 characters or less.</p>
-<h4>Numbers</h4>
+<h4 id="numbers">Numbers</h4>
 <p>When writing numbers between -1 and 1, use a leading 0 for the integral part of the number, i.e. prefer <code>0.31415</code> to <code>.31415</code>. Doing so makes the <code>.</code> more visible and also disambiguates the fact that is a decimal point.</p>
-<h4>Comments</h4>
+<p>Always use a radix when using <code>parseInt</code>:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> val = <span class="keyword">new</span> Number(str);   <span class="comment">// Bad</span>
+<span class="keyword">var</span> val = parseInt(str);     <span class="comment">// Bad</span>
+<span class="keyword">var</span> val = parseInt(str, <span class="number">10</span>); <span class="comment">// Good</span></code></pre>
+<h4 id="strings">Strings</h4>
+<p>Use single quotes <code>&#39;&#39;</code> for strings.</p>
+<p>When building a string, use <code>Array.prototype.join</code> instead of string concatenation.</p>
+<pre><code class="lang-javascript"><span class="comment">// Joins the word 'hello' 10 times, with spaces in between.</span>
+nums = [];
+
+<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {
+  nums.push(<span class="string">'hello'</span>);
+}
+
+<span class="keyword">return</span> nums.join(<span class="string">' '</span>);</code></pre>
+<h4 id="comments">Comments</h4>
 <p>You should write comments.</p>
 <pre><code class="lang-javascript"><span class="comment">/**
  * Function comments should be written like this.
@@ -144,8 +162,8 @@ Using a traditional <code>for</code> loop also eliminates problems when dealing 
   console.log(s); <span class="comment">// End of line comments should be written like this.</span>
 }</code></pre>
 <p>Start comments with a capital letter and end them with periods, just like sentences.</p>
-<h4>Tips</h4>
-<h5>Booleans</h5>
+<h4 id="tips">Tips</h4>
+<h5 id="booleans">Booleans</h5>
 <p>In boolean expressions, the following are all &#39;falsey&#39;:</p>
 <ul>
 <li><code>null</code></li>
@@ -154,7 +172,7 @@ Using a traditional <code>for</code> loop also eliminates problems when dealing 
 <li><code>&#39; &#39;</code></li>
 </ul>
 <p>However, beware that these are the <em>only</em> falsey things.</p>
-<h5>Ternary Operator</h5>
+<h5 id="ternary-operator">Ternary Operator</h5>
 <p>Use of the ternary operator is encouraged if it doesn&#39;t impair readability. The following two snippets are equivalent:</p>
 <pre><code class="lang-javascript"><span class="comment">// Method 1.</span>
 <span class="keyword">if</span> (condition) {
@@ -166,7 +184,7 @@ Using a traditional <code>for</code> loop also eliminates problems when dealing 
 <span class="comment">// Method 2.</span>
 x = condition ? <span class="number">2</span> : <span class="number">3</span>;</code></pre>
 <p>The second is clearly more succint and easier to read; thus, it is preferred.</p>
-<h5><code>&amp;&amp;</code> and <code>||</code></h5>
+<h5 id="-and-"><code>&amp;&amp;</code> and <code>||</code></h5>
 <p>The operators <code>&amp;&amp;</code> and <code>||</code> short circuit, and evaluate to the last evaluated value.
 We can use this to our advantage to initialize variables that may be uninitialized, and create default values:</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> x = x || {}; <span class="comment">// Sets x to {} but only if x has not been initialized yet.</span></code></pre>

@@ -71,6 +71,10 @@ var y = obj['b'] // Less preferred
 var key = 'a'
 var z = obj[key] // Necessary
 ```
+When copying an array, use `slice`:
+```javascript
+var itemCopy = items.slice();
+```
 
 ------------------------
 
@@ -96,6 +100,7 @@ Filenames should always be only lowercase. You may include either `_` or `-` in 
 
 #### Formatting
 We use standard C and C++ style formatting as shown below. We use two spaces for indentation, never use tabs.
+Always use braces with any multiline blocks. Place an empty newline at the end of every file.
 ```javascript
 if (condition) {
   // Do something
@@ -136,6 +141,29 @@ Keep line length to 100 characters or less.
 
 #### Numbers
 When writing numbers between -1 and 1, use a leading 0 for the integral part of the number, i.e. prefer `0.31415` to `.31415`. Doing so makes the `.` more visible and also disambiguates the fact that is a decimal point.
+
+Always use a radix when using `parseInt`:
+```javascript
+var val = new Number(str);   // Bad
+var val = parseInt(str);     // Bad
+var val = parseInt(str, 10); // Good
+```
+
+#### Strings
+Use single quotes `''` for strings.
+
+When building a string, use `Array.prototype.join` instead of string concatenation.
+
+```javascript
+// Joins the word 'hello' 10 times, with spaces in between.
+nums = [];
+
+for (var i = 0; i < 10; i++) {
+  nums.push('hello');
+}
+
+return nums.join(' ');
+```
 
 #### Comments
 You should write comments.

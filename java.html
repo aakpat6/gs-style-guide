@@ -19,19 +19,19 @@
       <li><a href="htmlcss.html">HTML/CSS</a></li>
     </ul>
   </div>
-  <h1>Java</h1>
+  <h1 id="java">Java</h1>
 <p>Follow standard Java coding conventions. Download the Eclipse autoformatter <a href="assets/android-formatting.xml">here</a>.</p>
 <p>Always make sure that code has been autoformatted before pushing it upstream.</p>
 <hr>
-<h2>Language</h2>
-<h4>Exceptions</h4>
+<h2 id="language">Language</h2>
+<h4 id="exceptions">Exceptions</h4>
 <p>Always handle exceptions correctly. Never simply handle the generic <code>Exception</code>, as this could end up catching exceptions that were thrown further up than you realize.</p>
 <p>When handling exceptions, you should do something with the exception, even if you simply log the exception. Your <code>catch</code> blocks should not be empty.</p>
-<h4>Imports</h4>
+<h4 id="imports">Imports</h4>
 <p>Always fully qualify all imports. Never have unused imports. It is easiest to simply use the import organizer that is built into your IDE.</p>
 <pre><code class="lang-java"><span class="keyword">import</span> java.util.ArrayList; <span class="comment">// GOOD</span>
 <span class="keyword">import</span> java.util.*; <span class="comment">// BAD</span></code></pre>
-<h4>Classes</h4>
+<h4 id="classes">Classes</h4>
 <p>All class variables should be <code>private</code>. Use <code>get</code> and <code>set</code> methods to access and modify these variables. The methods should be named with standard <code>get</code> and <code>set</code> standards.</p>
 <pre><code class="lang-java"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> {</span>
   <span class="keyword">private</span> <span class="keyword">int</span> foo;
@@ -44,46 +44,46 @@
     foo = f;
   }
 }</code></pre>
-<h4>Increment and Decrement</h4>
+<h4 id="increment-and-decrement">Increment and Decrement</h4>
 <p>Never put increment and decrement on the same line as other code. Since this makes <code>i++</code> and <code>++i</code> equivalent, there is no reason to use the latter. Therefore, you should only use post-increment and decrement.</p>
-<h4>Loops</h4>
+<h4 id="loops">Loops</h4>
 <p>Never use <code>do..while</code> loops. They are confusing, and the logic is at the end, making them less readable.</p>
 <p>Avoid using <code>break</code> and <code>continue</code> in loops, as they decrease readability.</p>
-<h4>Logging</h4>
+<h4 id="logging">Logging</h4>
 <p>You should log, especially when things break. However, log sparingly so as not to cause too much unnecessary clutter.</p>
 <hr>
-<h2>Style</h2>
-<h4>Naming</h4>
+<h2 id="style">Style</h2>
+<h4 id="naming">Naming</h4>
 <p>The naming convention is as follows:</p>
 <table>
 <thead>
 <tr>
-<th align="left">Type</th>
-<th align="left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Name</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Class</td>
-<td align="left"><code>ClassName</code></td>
+<td style="text-align:left">Class</td>
+<td style="text-align:left"><code>ClassName</code></td>
 </tr>
 <tr>
-<td align="left">Field</td>
-<td align="left"><code>fieldName</code></td>
+<td style="text-align:left">Field</td>
+<td style="text-align:left"><code>fieldName</code></td>
 </tr>
 <tr>
-<td align="left">Constant</td>
-<td align="left"><code>CONSTANT_NAME</code></td>
+<td style="text-align:left">Constant</td>
+<td style="text-align:left"><code>CONSTANT_NAME</code></td>
 </tr>
 </tbody>
 </table>
 <p>Treat acronyms as if they are words, i.e. <code>XmlHttpRequest</code> instead of <code>XMLHTTPRequest</code>.</p>
-<h4>Indentation</h4>
+<h4 id="indentation">Indentation</h4>
 <p>Use 4 spaces to indent blocks.</p>
 <p>Use 8 spaces for hanging indents.</p>
-<h4>TODO</h4>
+<h4 id="todo">TODO</h4>
 <p>Use <code>TODO:</code> comments for temporary code, or code that is a hacked solution. Clearly write what to fix, and when it needs to be fixed.</p>
-<h4>Comments</h4>
+<h4 id="comments">Comments</h4>
 <p>Use standard Javadoc comments to document functions and methods. Use end of line comments for statements. Comments should start with a capital letter and end with a period.</p>
 <p>If your class has more than 2 functions, you should put a multiline comment at the top explaining the purpose of the class.</p>
 <pre><code class="lang-java"><span class="javadoc">/**

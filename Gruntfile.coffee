@@ -6,8 +6,7 @@ module.exports = (grunt) ->
     less:
       all:
         options:
-          # yuicompress: true
-          dumpLineNumbers: 'comments'
+          yuicompress: true
         files:
           'css/style.css': 'less/style.less'
 
