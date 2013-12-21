@@ -1,7 +1,7 @@
 Java
 ==========
 
-Follow standard Java coding conventions. Download the Eclipse autoformatter [here](assets/android-formatting.xml).
+Follow standard Java coding conventions. [Download the Eclipse autoformatter](//www.dropbox.com/s/50abx0ckyl97a4s/GigaStormFormatter.xml).
 
 Always make sure that code has been autoformatted before pushing it upstream.
 
@@ -24,7 +24,7 @@ import java.util.*; // BAD
 ```
 
 #### Classes
-All class variables should be `private`. Use `get` and `set` methods to access and modify these variables. The methods should be named with standard `get` and `set` standards.
+All class instance variables should be `private`. We use `get` and `set` methods to access and modify these variables. The methods should be named with standard `get` and `set` standards.
 
 ```java
 class MyClass {
@@ -67,18 +67,15 @@ Constant | `CONSTANT_NAME`
 
 Treat acronyms as if they are words, i.e. `XmlHttpRequest` instead of `XMLHTTPRequest`.
 
-#### Indentation
-Use 4 spaces to indent blocks.
-
-Use 8 spaces for hanging indents.
-
 #### TODO
 Use `TODO:` comments for temporary code, or code that is a hacked solution. Clearly write what to fix, and when it needs to be fixed.
 
 #### Comments
-Use standard Javadoc comments to document functions and methods. Use end of line comments for statements. Comments should start with a capital letter and end with a period.
+Use standard Javadoc comments to document methods. Use end of line comments for statements. Comments should start with a capital letter and end with a period.
 
-If your class has more than 2 functions, you should put a multiline comment at the top explaining the purpose of the class.
+Generally, document methods if they aren't simple and self-explanatory. There's generally no reason to comment `get` and `set` methods.
+
+If your class has more than 2 methods, you should put a multiline comment at the top explaining the purpose of the class.
 
 ```java
 /**
