@@ -23,7 +23,7 @@
 <hr>
 <h2 id="html">HTML</h2>
 <h4 id="protocols">Protocols</h4>
-<p>Never specify a protocol when using resources. This enables compatibility with both <code>http:</code> and <code>https:</code>, as well as prevents small bugs and offers small performance increases.</p>
+<p>Never specify a protocol when using resources. This enables compatibility with both <code>http</code> and <code>https</code>, as well as prevents small bugs and offers small performance increases.</p>
 <pre><code class="lang-html"><span class="comment">&lt;!-- GOOD --&gt;</span>
 <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 <span class="comment">&lt;!-- BAD --&gt;</span>
@@ -45,10 +45,10 @@
 <span class="tag">&lt;<span class="title">A</span> <span class="attribute">HREF</span>=<span class="value">""</span>&gt;</span><span class="tag">&lt;/<span class="title">A</span>&gt;</span></code></pre>
 <h4 id="doctype">Doctype</h4>
 <p>Always use the HTML5 doctype:</p>
-<pre><code class="lang-html"><span class="doctype">&lt;!doctype html&gt;</span></code></pre>
+<pre><code class="lang-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span></code></pre>
 <h4 id="semantics">Semantics</h4>
-<p>Use the elements for the purpose they were intended for. If you want to make a paragraph, use the <code>p</code> element.</p>
-<p>Do not mix layout and functionality; i.e. do not put Javascript code directly inside tags.</p>
+<p>Use the elements for the purpose they were intended for. If you want to make a paragraph, use the <code>&lt;p&gt;</code> element instead of <code>&lt;br&gt; &lt;br&gt;</code>.</p>
+<p>Do not mix layout and functionality; i.e. do not put Javascript code directly inside tags (unless it&#39;s wrapped in an Angular directive).</p>
 <pre><code class="lang-html"><span class="comment">&lt;!-- BAD --&gt;</span>
 <span class="tag">&lt;<span class="title">p</span> <span class="attribute">onclick</span>=<span class="value">"alert('hi');"</span>&gt;</span>Say hi.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></pre>
 <p>Do not mix layout and presentation; i.e. do not put a <code>style</code> attribute directly on HTML tags.</p>
@@ -60,9 +60,12 @@
 <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/main.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
 <h4 id="quotations">Quotations</h4>
 <p>Use double quotes (<code>&quot;</code>) when specifying values for attributes in tags, instead of single quotes (<code>&#39;</code>).</p>
-<h2 id="css">CSS</h2>
+<h2 id="css-less">CSS/LESS</h2>
 <h4 id="semicolons">Semicolons</h4>
 <p>Use semicolons after every style declaration.</p>
+<pre><code class="lang-css"><span class="tag">body</span> <span class="rules">{
+  <span class="rule"><span class="attribute">background</span>:<span class="value"> red;</span></span>
+<span class="rule">}</span></span></code></pre>
 <h4 id="whitespace">Whitespace</h4>
 <p>Place an extra blank line between rules. Each selector for a rule should be on a new line. Each style declaration should itself be on a new line.</p>
 <p>Use a space after the colon, but not before the colon, for every declaration.</p>
@@ -70,7 +73,7 @@
 <p>Use two spaces to indent inside each block.</p>
 <h4 id="colors">Colors</h4>
 <p>Prefer to use the shortest string possible when using colors; so, <code>#ff0</code> is preferred to <code>#ffff00</code>. Use lowercase when using hex color selectors.</p>
-<p>If using a precompiler such as LESS, use a variable for each color in use, instead of hardcoding colors into the LESS declarations.</p>
+<p>If using LESS, use a variable for each color in use, instead of hard coding colors into the LESS declarations.</p>
 <h4 id="shorthand">Shorthand</h4>
 <p>Prefer shorthand properties to multiple properties. They increase readability of the styles.
 More documentation about shorthand properties can be found at the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">Mozilla Developer Network</a>.</p>
@@ -79,7 +82,7 @@ More documentation about shorthand properties can be found at the <a href="https
 <h4 id="naming">Naming</h4>
 <p>Class and ID names should be lowercase and hyphenated. They should become more specific from left to right, e.g. <code>btn-user-edit</code>.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-`html"><span class="tag">body</span> <span class="rules">{
+<pre><code class="lang-`css"><span class="tag">body</span> <span class="rules">{
   <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#fff</span>;</span></span>
 <span class="rule">}</span></span>
 

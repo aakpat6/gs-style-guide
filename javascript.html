@@ -60,14 +60,15 @@ Using a traditional <code>for</code> loop also eliminates problems when dealing 
 <pre><code class="lang-javascript"><span class="keyword">var</span> obj = {a: <span class="number">5</span>, b: <span class="number">6</span>}
 <span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>];</code></pre>
 <p>In object literals, only use strings as keys if necessary.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> obj = {a: <span class="number">5</span>, b: <span class="number">6</span>}; <span class="comment">// GOOD</span>
-<span class="keyword">var</span> obj = {<span class="string">'a'</span>: <span class="number">5</span>, <span class="string">'b'</span>: <span class="number">6</span>}; <span class="comment">// BAD</span></code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> obj = {a: <span class="number">5</span>, b: <span class="number">6</span>}; <span class="comment">// Good</span>
+<span class="keyword">var</span> obj = {<span class="string">'a'</span>: <span class="number">5</span>, <span class="string">'b'</span>: <span class="number">6</span>}; <span class="comment">// Bad</span>
+<span class="keyword">var</span> obj = {<span class="string">'has-error'</span>: <span class="literal">true</span>}; <span class="comment">// Necessary</span></code></pre>
 <p>When accessing properties in objects, use dot notation whenever possible. Note that dot notation is not possible to use when trying to access a key that is only known by reference to a variable, as shown below.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> obj = {a: <span class="number">5</span>, b: <span class="number">6</span>};
 <span class="keyword">var</span> x = obj.a; <span class="comment">// Preferred</span>
-<span class="keyword">var</span> y = obj[<span class="string">'b'</span>] <span class="comment">// Less preferred</span>
-<span class="keyword">var</span> key = <span class="string">'a'</span>
-<span class="keyword">var</span> z = obj[key] <span class="comment">// Necessary</span></code></pre>
+<span class="keyword">var</span> y = obj[<span class="string">'b'</span>]; <span class="comment">// Less preferred</span>
+<span class="keyword">var</span> key = <span class="string">'a'</span>;
+<span class="keyword">var</span> z = obj[key]; <span class="comment">// Necessary</span></code></pre>
 <p>When copying an array, use <code>slice</code>:</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> itemCopy = items.slice();</code></pre>
 <hr>
@@ -84,7 +85,7 @@ Using a traditional <code>for</code> loop also eliminates problems when dealing 
 <tbody>
 <tr>
 <td style="text-align:left">File</td>
-<td style="text-align:left"><code>filename.js</code></td>
+<td style="text-align:left"><code>file_name.js</code></td>
 </tr>
 <tr>
 <td style="text-align:left">Namespace</td>
@@ -104,9 +105,9 @@ Using a traditional <code>for</code> loop also eliminates problems when dealing 
 </tr>
 </tbody>
 </table>
-<p>We use a <code>trailingUnderscore_</code> to distinguish those functions and properties that should be private.</p>
-<p>Optional function arguments should be prefixed with <code>opt_</code> so as to let the caller know that the argument is optional. If a function has a variable number of arguments, the last argument should be <code>var_args</code>.</p>
-<p>Filenames should always be only lowercase. You may include either <code>_</code> or <code>-</code> in the filenames if you so choose.</p>
+<p>We can use a <code>trailingUnderscore_</code> to distinguish those functions and properties that should be private.</p>
+<p>Optional function arguments can be prefixed with <code>opt_</code> so as to let the caller know that the argument is optional. If a function has a variable number of arguments, the last argument should be <code>var_args</code>.</p>
+<p>Filenames should always be only lowercase. You may include either <code>_</code> in the filenames if you so choose.</p>
 <h4 id="formatting">Formatting</h4>
 <p>We use standard C and C++ style formatting as shown below. We use two spaces for indentation, never use tabs.
 Always use braces with any multiline blocks. Place an empty newline at the end of every file.</p>
@@ -132,7 +133,7 @@ Always use braces with any multiline blocks. Place an empty newline at the end o
                               aThirdArgumentName, theVeryLastArgument)</span> {</span></code></pre>
 <h4 id="parentheses-and-quotes">Parentheses and Quotes</h4>
 <p>Use parentheses only when required. Never use parentheses next to a keyword such as <code>return</code> or <code>typeof</code>.</p>
-<p>Prefer <code>&#39;</code> to <code>&quot;</code> simply because it improves consistency and makes it easier to write HTML in Javascript strings.</p>
+<p>Prefer <code>&#39;</code> to <code>&quot;</code> because it improves consistency and makes it easier to write HTML in Javascript strings.</p>
 <h4 id="line-length">Line Length</h4>
 <p>Keep line length to 100 characters or less.</p>
 <h4 id="numbers">Numbers</h4>
@@ -141,9 +142,10 @@ Always use braces with any multiline blocks. Place an empty newline at the end o
 <pre><code class="lang-javascript"><span class="keyword">var</span> val = <span class="keyword">new</span> Number(str);   <span class="comment">// Bad</span>
 <span class="keyword">var</span> val = parseInt(str);     <span class="comment">// Bad</span>
 <span class="keyword">var</span> val = parseInt(str, <span class="number">10</span>); <span class="comment">// Good</span></code></pre>
+<p>However, if you can, avoid <code>parseInt</code> in favor of <code>_.parseInt</code> from Lodash because it improves ES3/ES5 compatibility.</p>
 <h4 id="strings">Strings</h4>
 <p>Use single quotes <code>&#39;&#39;</code> for strings.</p>
-<p>When building a string, use <code>Array.prototype.join</code> instead of string concatenation.</p>
+<p>When building a large string, use <code>Array.prototype.join</code> instead of string concatenation.</p>
 <pre><code class="lang-javascript"><span class="comment">// Joins the word 'hello' 10 times, with spaces in between.</span>
 nums = [];
 

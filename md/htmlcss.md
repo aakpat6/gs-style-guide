@@ -7,7 +7,7 @@ HTML
 ----
 
 #### Protocols
-Never specify a protocol when using resources. This enables compatibility with both `http:` and `https:`, as well as prevents small bugs and offers small performance increases.
+Never specify a protocol when using resources. This enables compatibility with both `http` and `https`, as well as prevents small bugs and offers small performance increases.
 ```html
 <!-- GOOD -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -39,13 +39,13 @@ Only use lowercase. This improves readability across the code base.
 #### Doctype
 Always use the HTML5 doctype:
 ```html
-<!doctype html>
+<!DOCTYPE html>
 ```
 
 #### Semantics
-Use the elements for the purpose they were intended for. If you want to make a paragraph, use the `p` element.
+Use the elements for the purpose they were intended for. If you want to make a paragraph, use the `<p>` element instead of `<br> <br>`.
 
-Do not mix layout and functionality; i.e. do not put Javascript code directly inside tags.
+Do not mix layout and functionality; i.e. do not put Javascript code directly inside tags (unless it's wrapped in an Angular directive).
 ```html
 <!-- BAD -->
 <p onclick="alert('hi');">Say hi.</p>
@@ -68,11 +68,16 @@ Do not specify `type` attributes on scripts and stylesheets. The correct way to 
 Use double quotes (`"`) when specifying values for attributes in tags, instead of single quotes (`'`).
 
 
-CSS
----
+CSS/LESS
+--------
 
 #### Semicolons
 Use semicolons after every style declaration.
+```css
+body {
+  background: red;
+}
+```
 
 #### Whitespace
 Place an extra blank line between rules. Each selector for a rule should be on a new line. Each style declaration should itself be on a new line.
@@ -85,7 +90,7 @@ Use two spaces to indent inside each block.
 #### Colors
 Prefer to use the shortest string possible when using colors; so, `#ff0` is preferred to `#ffff00`. Use lowercase when using hex color selectors.
 
-If using a precompiler such as LESS, use a variable for each color in use, instead of hardcoding colors into the LESS declarations.
+If using LESS, use a variable for each color in use, instead of hard coding colors into the LESS declarations.
 
 #### Shorthand
 Prefer shorthand properties to multiple properties. They increase readability of the styles.
@@ -98,7 +103,7 @@ Use single quotes for CSS when specifying property values.
 Class and ID names should be lowercase and hyphenated. They should become more specific from left to right, e.g. `btn-user-edit`.
 
 #### Example
-````html
+````css
 body {
   background-color: #fff;
 }

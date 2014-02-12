@@ -60,16 +60,17 @@ var arr = [1, 1, 2, 3, 5, 8];
 ```
 In object literals, only use strings as keys if necessary.
 ```javascript
-var obj = {a: 5, b: 6}; // GOOD
-var obj = {'a': 5, 'b': 6}; // BAD
+var obj = {a: 5, b: 6}; // Good
+var obj = {'a': 5, 'b': 6}; // Bad
+var obj = {'has-error': true}; // Necessary
 ```
 When accessing properties in objects, use dot notation whenever possible. Note that dot notation is not possible to use when trying to access a key that is only known by reference to a variable, as shown below.
 ```javascript
 var obj = {a: 5, b: 6};
 var x = obj.a; // Preferred
-var y = obj['b'] // Less preferred
-var key = 'a'
-var z = obj[key] // Necessary
+var y = obj['b']; // Less preferred
+var key = 'a';
+var z = obj[key]; // Necessary
 ```
 When copying an array, use `slice`:
 ```javascript
@@ -86,17 +87,17 @@ In Javascript, the naming scheme is as follows:
 
 Type | Name
 :----- | :-----
-File | `filename.js`
+File | `file_name.js`
 Namespace | `NamespaceName`
 Constant | `CONSTANT_NAME`
 Function | `functionName`
 Variable | `variableName`
 
-We use a `trailingUnderscore_` to distinguish those functions and properties that should be private.
+We can use a `trailingUnderscore_` to distinguish those functions and properties that should be private.
 
-Optional function arguments should be prefixed with `opt_` so as to let the caller know that the argument is optional. If a function has a variable number of arguments, the last argument should be `var_args`.
+Optional function arguments can be prefixed with `opt_` so as to let the caller know that the argument is optional. If a function has a variable number of arguments, the last argument should be `var_args`.
 
-Filenames should always be only lowercase. You may include either `_` or `-` in the filenames if you so choose.
+Filenames should always be only lowercase. You may include either `_` in the filenames if you so choose.
 
 #### Formatting
 We use standard C and C++ style formatting as shown below. We use two spaces for indentation, never use tabs.
@@ -134,7 +135,7 @@ function functionWithABigName(reallyLongArgumentName, anotherLongArgumentNameAga
 #### Parentheses and Quotes
 Use parentheses only when required. Never use parentheses next to a keyword such as `return` or `typeof`.
 
-Prefer `'` to `"` simply because it improves consistency and makes it easier to write HTML in Javascript strings.
+Prefer `'` to `"` because it improves consistency and makes it easier to write HTML in Javascript strings.
 
 #### Line Length
 Keep line length to 100 characters or less.
@@ -148,11 +149,12 @@ var val = new Number(str);   // Bad
 var val = parseInt(str);     // Bad
 var val = parseInt(str, 10); // Good
 ```
+However, if you can, avoid `parseInt` in favor of `_.parseInt` from Lodash because it improves ES3/ES5 compatibility.
 
 #### Strings
 Use single quotes `''` for strings.
 
-When building a string, use `Array.prototype.join` instead of string concatenation.
+When building a large string, use `Array.prototype.join` instead of string concatenation.
 
 ```javascript
 // Joins the word 'hello' 10 times, with spaces in between.
